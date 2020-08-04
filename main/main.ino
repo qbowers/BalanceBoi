@@ -18,14 +18,14 @@
 #include <Adafruit_MotorShield.h>
 #include "utility/Adafruit_MS_PWMServoDriver.h"
 
- 
+
 Adafruit_FXOS8700 accelmag = Adafruit_FXOS8700(0x00069, 0x00070);
 Adafruit_FXAS21002C gyroscope = Adafruit_FXAS21002C(0x0021002C);
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
 Adafruit_DCMotor *myMotor = AFMS.getMotor(1); //replace 1 with 2, 3, 4, depending on which port it's connected to (x for Mx, x in {1, 2, 3, 4})
-double accel[3] = [0.0, 0.0, 0.0];
-double mag[3] = [0.0, 0.0, 0.0];
-double gyro[3] = [0.0, 0.0, 0.0];
+double accel[3] = {0.0, 0.0, 0.0};
+double mag[3] = {0.0, 0.0, 0.0};
+double gyro[3] = {0.0, 0.0, 0.0};
 
 int32_t timer;
 int16_t motorState = 0;
@@ -60,7 +60,7 @@ void setup(void) {
 
 
   /* Display some basic information on this sensor */
-  displaySensorDetails();
+  displayGyroDetails();
   getState(); 
   AFMS.begin();
 }
